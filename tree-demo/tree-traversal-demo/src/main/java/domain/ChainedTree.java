@@ -1,9 +1,6 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @Description
@@ -231,6 +228,35 @@ public class ChainedTree<T extends Comparable<T>> {
                 current = stack.pop();
                 result.add(current.val);
             }
+        }
+        return result;
+    }
+
+    // 层序遍历
+    public List<List<T>> levelOrder() {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+
+        Queue<TreeNode<T>> queue = new LinkedList<>();
+        List<List<T>> result = new LinkedList<>();
+        queue.offer(root);
+        TreeNode<T> current;
+        while (!queue.isEmpty()) {
+            List<T> currentList = new LinkedList<>();
+            int size = queue.size();
+            while (size > 0) {
+                current = queue.poll();
+                if (current.left != null) {
+                    queue.offer(current.left);
+                }
+                if (current.right != null) {
+                    queue.offer(current.right);
+                }
+                currentList.add(current.val);
+                size--;
+            }
+            result.add(currentList);
         }
         return result;
     }
