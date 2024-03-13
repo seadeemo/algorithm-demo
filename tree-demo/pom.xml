@@ -12,8 +12,7 @@
 	<artifactId>tree-demo</artifactId>
 	<packaging>pom</packaging>
 	<modules>
-		<module>seq-tree-demo</module>
-		<module>chained-tree-demo</module>
+		<module>tree-traversal-demo</module>
 	</modules>
 
 	<properties>

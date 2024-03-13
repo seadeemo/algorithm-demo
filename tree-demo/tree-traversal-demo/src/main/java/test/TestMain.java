@@ -42,8 +42,11 @@ public class TestMain {
         resultList = tree.postorderTraversalRecursion();
         resultList.forEach(i -> System.err.print(i + ","));
         System.err.println();
+
         resultList = tree.postorderTraversalIteration();
         resultList.forEach(i -> System.err.print(i + ","));
+
+
     }
 
 }
