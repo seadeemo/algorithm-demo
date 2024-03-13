@@ -148,6 +148,93 @@ public class ChainedTree<T extends Comparable<T>> {
         return result;
     }
 
+    // 中序遍历--迭代(统一写法)
+    public List<T> inorderTraversal() {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        Stack<TreeNode<T>> stack = new Stack<>();
+        List<T> result = new ArrayList<>(size);
+        stack.push(root);
+        TreeNode<T> current;
+        while (!stack.isEmpty()) {
+            current = stack.peek();
+            stack.pop();
+            if (current != null) {
+                if (current.right != null) {
+                    stack.push(current.right);
+                }
+                stack.push(current);
+                stack.push(null);
+                if (current.left != null) {
+                    stack.push(current.left);
+                }
+            } else {
+                current = stack.pop();
+                result.add(current.val);
+            }
+        }
+        return result;
+    }
+
+    // 前序遍历--迭代(统一写法)
+    public List<T> preorderTraversal() {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        Stack<TreeNode<T>> stack = new Stack<>();
+        List<T> result = new ArrayList<>(size);
+        stack.push(root);
+        TreeNode<T> current;
+        while (!stack.isEmpty()) {
+            current = stack.peek();
+            stack.pop();
+            if (current != null) {
+                if (current.right != null) {
+                    stack.push(current.right);
+                }
+                if (current.left != null) {
+                    stack.push(current.left);
+                }
+                stack.push(current);
+                stack.push(null);
+            } else {
+                current = stack.pop();
+                result.add(current.val);
+            }
+        }
+        return result;
+    }
+
+    // 后序遍历--迭代(统一写法)
+    public List<T> postorderTraversal() {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        Stack<TreeNode<T>> stack = new Stack<>();
+        List<T> result = new ArrayList<>(size);
+        stack.push(root);
+        TreeNode<T> current;
+        while (!stack.isEmpty()) {
+            current = stack.peek();
+            stack.pop();
+            if (current != null) {
+                stack.push(current);
+                stack.push(null);
+                if (current.right != null) {
+                    stack.push(current.right);
+                }
+                if (current.left != null) {
+                    stack.push(current.left);
+                }
+            } else {
+                current = stack.pop();
+                result.add(current.val);
+            }
+        }
+        return result;
+    }
+
     public void insert(T value) {
         size++;
         if (root == null) {

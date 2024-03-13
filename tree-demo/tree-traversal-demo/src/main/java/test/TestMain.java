@@ -27,6 +27,10 @@ public class TestMain {
 
         resultList = tree.preorderTraversalIteration();
         resultList.forEach(i -> System.err.print(i + ","));
+        System.err.println();
+
+        resultList = tree.preorderTraversal();
+        resultList.forEach(i -> System.err.print(i + ","));
 
         System.err.println();
         System.err.println("中序遍历----------------------------------------");
@@ -35,6 +39,10 @@ public class TestMain {
         System.err.println();
 
         resultList = tree.inorderTraversalIteration();
+        resultList.forEach(i -> System.err.print(i + ","));
+        System.err.println();
+
+        resultList = tree.inorderTraversal();
         resultList.forEach(i -> System.err.print(i + ","));
 
         System.err.println();
@@ -46,6 +54,9 @@ public class TestMain {
         resultList = tree.postorderTraversalIteration();
         resultList.forEach(i -> System.err.print(i + ","));
 
+        System.err.println();
+        resultList = tree.postorderTraversal();
+        resultList.forEach(i -> System.err.print(i + ","));
 
     }
 
